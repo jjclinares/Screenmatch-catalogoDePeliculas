@@ -1,17 +1,21 @@
 package com.jameroraclecursos.screenmatch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo>{
 
     //Determinar Private (No se puede acceder directamente desde fuera de la clase)
     private String nombre;
     private int fechaDeLanzamiento;
-    private int duracionEnMinutos;
     private boolean incluidoEnElPlan;
-
-    //Encapsular los datos y protegerlos de modificaciones no deseadas.
-
     private double sumaDeLasEvaluaciones;
     private int totalDeLasEvaluaciones;
+    private int duracionEnMinutos;
+
+    //Constructores
+
+    public Titulo(String nombre, int fechaDeLanzamiento) {
+        this.nombre = nombre;
+        this.fechaDeLanzamiento = fechaDeLanzamiento;
+    }
 
     //Obtener valores de los atributos privados
 
@@ -45,13 +49,14 @@ public class Titulo {
         this.fechaDeLanzamiento = fechaDeLanzamiento;
     }
 
+    public void setIncluidoEnElPlan(boolean incluidoEnElPlan) {
+        this.incluidoEnElPlan = incluidoEnElPlan;
+    }
     public void setDuracionEnMinutos(int duracionEnMinutos) {
         this.duracionEnMinutos = duracionEnMinutos;
     }
 
-    public void setIncluidoEnElPlan(boolean incluidoEnElPlan) {
-        this.incluidoEnElPlan = incluidoEnElPlan;
-    }
+
 
 
     //Imprimir los valores generales por película
@@ -71,7 +76,10 @@ public class Titulo {
 
     // Calcular la media
     public double calculaMedia() {
-
         return sumaDeLasEvaluaciones / totalDeLasEvaluaciones;
+    }
+
+    public int compareTo(Titulo otroTitulo) {
+        return this.getNombre().compareTo(otroTitulo.getNombre());
     }
 }

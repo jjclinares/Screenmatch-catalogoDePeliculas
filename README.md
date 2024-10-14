@@ -40,7 +40,7 @@ El código está organizado en los siguientes paquetes:
 ### Cómo ejecutar el programa
 
 1. Asegúrate de tener Java instalado.
-2. Compila y ejecuta el archivo `Principal.java`.
+2. Compila y ejecuta el archivo `com.jameroraclecursos.screenmatch.principal.Principal.java`.
 3. El programa mostrará los detalles de las películas y series, calculará el tiempo total de visualización, y ofrecerá recomendaciones basadas en la popularidad.
 
 ## Ejemplo de salida:

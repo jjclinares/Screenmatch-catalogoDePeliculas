@@ -5,11 +5,20 @@ public class CalculadoraDeTiempo {
     private int tiempoTotal;
 
     public int getTiempoTotal() {
-        return tiempoTotal;
+
+        return this.tiempoTotal;
     }
+//    public void incluido(Filme f) {
+//        this.tiempoTotal += f.getDuracionEnMinutos();
+//    }
+//
+//    public void incluido(Serie s) {
+//        this.tiempoTotal += s.getDuracionEnMinutos();
+//    }
 
         public void incluye(Titulo titulo){
-        this.tiempoTotal += titulo.getDuracionEnMinutos();
+            System.out.println("Agregando duración en minutos de " + titulo);
+            this.tiempoTotal += titulo.getDuracionEnMinutos();
     }
     
 }

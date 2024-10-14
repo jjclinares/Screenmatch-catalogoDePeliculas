@@ -1,6 +1,7 @@
 package com.jameroraclecursos.screenmatch.calculos;
 
 public class FiltroRecomendacion {
+    private String recomendacion;
     
     public void filtra(Clasificacion clasificacion){
         if (clasificacion.getClasificacion() >= 4){
