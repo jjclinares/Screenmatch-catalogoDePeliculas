@@ -27,16 +27,15 @@ public class Principal {
 
         // Crear un objeto de la clase Serie
         Serie casaDelDragon = new Serie("La casa del Dragón",2022);
-            casaDelDragon.setTemporadas(1);
+            casaDelDragon.muestraFichaTecnica();
+            casaDelDragon.setTemporadas(10);
             casaDelDragon.setMinutosPorEpisodio(50);
             casaDelDragon.setEpisodiosPorTemporada(10);
-            casaDelDragon.muestraFichaTecnica();
-        System.out.println("Duración en minutos: " + casaDelDragon.getDuracionEnMinutos());
+        System.out.println("Duracion de la série: " + casaDelDragon.getDuracionEnMinutos());
 
         // Crear otro objeto de la clase Película
         Pelicula otraPelicula =new Pelicula("Matrix",1998);
             otraPelicula.setDuracionEnMinutos(180);
-            otraPelicula.muestraFichaTecnica();
 
         //Calcular tiempo
         CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
@@ -50,7 +49,6 @@ public class Principal {
 
         Episodio episodio =new Episodio();
         episodio.setNumero(1);
-        episodio.setNombre("La casa Targaryen");
         episodio.setSerie(casaDelDragon);
         episodio.setTotalVisualizaciones(300);
         filtroRecomendacion.filtra(episodio);

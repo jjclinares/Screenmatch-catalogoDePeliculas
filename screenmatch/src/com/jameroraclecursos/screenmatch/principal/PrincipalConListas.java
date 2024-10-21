@@ -21,7 +21,7 @@ public class PrincipalConListas {
 
         Pelicula p1 = miPelicula;
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(peliculaBruno);
         lista.add(miPelicula);
         lista.add(otraPelicula);

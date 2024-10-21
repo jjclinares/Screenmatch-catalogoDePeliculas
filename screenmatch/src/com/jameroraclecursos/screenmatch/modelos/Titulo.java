@@ -1,5 +1,8 @@
 package com.jameroraclecursos.screenmatch.modelos;
 
+
+import com.jameroraclecursos.screenmatch.excepcion.ErrorEnConversionDeDuracionExcepcion;
+
 public class Titulo implements Comparable<Titulo>{
 
     //Determinar Private (No se puede acceder directamente desde fuera de la clase)
@@ -18,6 +21,18 @@ public class Titulo implements Comparable<Titulo>{
     }
 
     //Obtener valores de los atributos privados
+    public Titulo(TituloOmdb miTituloOmdb) {
+        this.nombre = miTituloOmdb.title();
+        this.fechaDeLanzamiento = Integer.valueOf(miTituloOmdb.year());
+        if (miTituloOmdb.runtime().contains("N/A")){
+            throw new ErrorEnConversionDeDuracionExcepcion("No se pudo convertir la duración," +
+                    "porque contiene un N/A");
+        }
+        this.duracionEnMinutos = Integer.valueOf(
+                miTituloOmdb.runtime().substring(0,3).replace(" ","")
+        );
+    }
+
 
     public String getNombre() {
         return nombre;
@@ -52,6 +67,7 @@ public class Titulo implements Comparable<Titulo>{
     public void setIncluidoEnElPlan(boolean incluidoEnElPlan) {
         this.incluidoEnElPlan = incluidoEnElPlan;
     }
+
     public void setDuracionEnMinutos(int duracionEnMinutos) {
         this.duracionEnMinutos = duracionEnMinutos;
     }
@@ -79,7 +95,15 @@ public class Titulo implements Comparable<Titulo>{
         return sumaDeLasEvaluaciones / totalDeLasEvaluaciones;
     }
 
+    @Override
     public int compareTo(Titulo otroTitulo) {
         return this.getNombre().compareTo(otroTitulo.getNombre());
+    }
+
+    @Override
+    public String toString() {
+        return "(nombre=" + nombre +
+                ", fechaDeLanzamiento=" + fechaDeLanzamiento +
+                ", duracion=" + duracionEnMinutos + ")";
     }
 }
